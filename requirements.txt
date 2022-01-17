@@ -84,7 +84,7 @@ simplejson==3.17.2
 six==1.16.0
 social-auth-app-django==4.0.0
 social-auth-core==4.1.0
-sqlparse==0.4.2
+sqlparse
 tabulate==0.8.7
 terminaltables==3.1.0
 toml==0.10.2
