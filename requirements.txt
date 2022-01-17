@@ -26,3 +26,4 @@ sqlparse
 tenacity==8.0.1
 Werkzeug==2.0.2
 dpd-static-support
+whitenoise
