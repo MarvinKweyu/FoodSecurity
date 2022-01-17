@@ -151,3 +151,13 @@ LOGGING = {
         },
     },
 }
+
+
+# look for static files in this directory and move them to static root directory
+# used during collect static
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static_cdn"),
+]
+
+# store static in this directory
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
