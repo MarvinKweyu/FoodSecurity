@@ -20,7 +20,8 @@ from django.views.generic.base import RedirectView
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("django_plotly_dash/", include("django_plotly_dash.urls")),
-    path("", RedirectView.as_view(url="/draught/"), name="index"),
+    # url(r'^plot1d/$', views.Plot1DView.as_view(), name='plot1d'),
+    path("plot1d/$", RedirectView.as_view(url="/draught/"), name="index"),
     path(
         "draught/",
         include(

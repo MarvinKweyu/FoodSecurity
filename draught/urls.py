@@ -2,8 +2,9 @@ from django.urls import path, include
 
 from . import views
 
+# UKDe2LFEt3eicgQ
+
 urlpatterns = [
-    # /app1
     path("", views.IndexView.as_view(), name="index"),
     path("plot1d/$", views.Plot1DView.as_view(), name="plot1d"),
 ]
