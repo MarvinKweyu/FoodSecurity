@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # 3rd party apps
     "django_plotly_dash.apps.DjangoPlotlyDashConfig",
-    "dpd_static_support",
+    # "dpd_static_support",
 ]
 
 MIDDLEWARE = [
