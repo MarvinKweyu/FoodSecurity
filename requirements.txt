@@ -8,17 +8,13 @@ charset-normalizer==2.0.6
 cli-helpers==2.1.0
 click==7.1.2
 colorama==0.4.4
-command-not-found==0.3
 configobj==5.0.6
 coreapi==2.3.3
 coreschema==0.0.4
 cryptography==3.4.8
-cupshelpers==1.0
 dbus-python==1.2.16
 decorator==4.4.2
 defusedxml==0.7.1
-distro==1.5.0
-distro-info==1.0
 dj-rest-auth==2.1.11
 Django==3.2.7
 django-allauth==0.45.0
