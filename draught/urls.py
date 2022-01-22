@@ -6,5 +6,6 @@ from . import views
 
 urlpatterns = [
     path("", views.IndexView.as_view(), name="index"),
-    path("plot1d/$", views.Plot1DView.as_view(), name="plot1d"),
+    path("plot1d/", views.Plot1DView.as_view(), name="plot1d"),
+    path("pasture-quality/", views.KenyanMap.as_view(), name="kenyan_map"),
 ]

@@ -3,7 +3,11 @@ import glob
 import logging
 import os
 
+import geopandas as gpd
+import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
+import plotly.express as px
 import plotly.graph_objs as go
 from plotly.offline import plot
 
@@ -25,6 +29,36 @@ def plot1d():
     fig = go.Figure(data=data, layout=layout)
     plot_div = plot(fig, output_type="div", include_plotlyjs=False)
     logger.info("Plotting number of points {}.".format(len(x_data)))
+    return plot_div
+
+
+def kenyan_map():
+
+    current_dir = os.path.dirname(os.path.realpath(__file__))
+    file_path = os.path.join(current_dir, "data-source", "merged-result.csv")
+
+    merged = pd.read_csv(file_path)
+
+    fig = px.choropleth(
+        merged,
+        geojson=merged.geometry,
+        locations=merged.index,
+        color="Pasture condition:",
+        color_continuous_scale="Viridis",
+        range_color=(0, 3),
+        height=900,
+        scope="africa",
+        labels={"Pasture condition:": "Pasture condition"},
+    )
+
+    fig.update_geos(fitbounds="locations", visible=True)
+
+    fig.update_layout(title_text="Kenya and the State of draught")
+
+    fig.update(layout=dict(title=dict(x=0.5)))
+    fig.update_layout(margin={"r": 0, "t": 30, "l": 10, "b": 10})
+
+    plot_div = plot(fig, output_type="div", include_plotlyjs=False)
     return plot_div
 
 

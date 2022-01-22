@@ -23,3 +23,13 @@ class Plot1DView(TemplateView):
         context = super(Plot1DView, self).get_context_data(**kwargs)
         context["plot"] = plots.plot1d()
         return context
+
+
+class KenyanMap(TemplateView):
+    template_name = "plot.html"
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super(KenyanMap, self).get_context_data(**kwargs)
+        context["plot"] = plots.kenyan_map()
+        return context
