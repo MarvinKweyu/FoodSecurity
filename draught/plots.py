@@ -32,6 +32,54 @@ def plot1d():
     return plot_div
 
 
+def second_kenyan_map():
+    """Get kenyan map, with live data"""
+
+    current_dir = os.path.dirname(os.path.realpath(__file__))
+    data_values_path = os.path.join(current_dir, "data-source", "Data_values.xlsx")
+    data_labels_path = os.path.join(
+        current_dir, "data-source", "data_labels_cleaned.csv"
+    )
+
+    shape_file_path = os.path.join(current_dir, "data-source", "County", "County.shp")
+
+    data_values = pd.read_excel(data_values_path, index_col=0)
+    group_by_county = data_values.groupby("Q3")
+
+    data_labels = pd.read_csv(data_labels_path, index_col=0)
+    # remove duplicated county names by getting the means of the respective duplicates and having it as one county
+    by_county_average = data_labels.groupby("County:").mean().reset_index()
+    # rename column county: to county on by_county_average
+    by_county_average.rename(columns={"County:": "COUNTY"}, inplace=True)
+
+    # shapefile = "data-source/County/County.shp"
+    county = gpd.read_file(shape_file_path)[["COUNTY", "geometry"]]
+
+    merged = county.merge(by_county_average, on="COUNTY", how="left")
+
+    fig = px.choropleth(
+        merged,
+        geojson=merged.geometry,
+        locations=merged.index,
+        color="Pasture condition:",
+        color_continuous_scale="Viridis",
+        range_color=(0, 3),
+        height=900,
+        scope="africa",
+        labels={"Pasture condition:": "Pasture condition"},
+    )
+
+    fig.update_geos(fitbounds="locations", visible=True)
+
+    fig.update_layout(title_text="Kenya and the State of draught")
+
+    fig.update(layout=dict(title=dict(x=0.5)))
+    fig.update_layout(margin={"r": 0, "t": 30, "l": 10, "b": 10})
+
+    plot_div = plot(fig, output_type="div", include_plotlyjs=False)
+    return plot_div
+
+
 def kenyan_map():
 
     current_dir = os.path.dirname(os.path.realpath(__file__))

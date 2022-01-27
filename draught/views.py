@@ -31,5 +31,5 @@ class KenyanMap(TemplateView):
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super(KenyanMap, self).get_context_data(**kwargs)
-        context["plot"] = plots.kenyan_map()
+        context["plot"] = plots.second_kenyan_map()
         return context
