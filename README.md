@@ -27,3 +27,10 @@ Above command will run the analysis in a docker container.
 https://towardsdatascience.com/how-to-run-jupyter-notebook-on-docker-7c9748ed209f
 
 https://simplernerd.com/docker-jupyter-notebook/
+
+## Local Development
+
+Requirements file
+```
+Fiona @ git+https://github.com/Toblerity/Fiona.git@d36e0c897c545e0e51fe759e540c85c117bf3fc1
+```
