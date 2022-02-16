@@ -3,6 +3,13 @@
 > An analysis of food security in Kenya
 
 
+## Introduction
+
+```bash
+mercury runserver --runworker
+```
+
+
 ## Development
 
 Running the analysis requires the following dependencies:
