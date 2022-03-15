@@ -1,6 +1,6 @@
 # FoodSecurity
 
-> An analysis of food security in Kenya
+> An analysis of food security in Kenya in areas whose effects would be felt across the country
 
 
 ## Introduction
