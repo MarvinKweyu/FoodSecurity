@@ -14,7 +14,6 @@ Set up the local environment and start the server
 bash develop.sh
 ```
 
-
 ## Docker setup(WIP)
 
 
